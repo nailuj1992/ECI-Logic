@@ -29,7 +29,17 @@ a {
 .col-xs-5ths .boton {
     width: 45%;
     margin-left: 50% !important;
-    margin-top: -51% !important;
+    margin-top: -42% !important;
+}
+
+.col-sm-3 .boton {
+    width: 70%;
+    margin-top: 15%;
+}
+
+.col-sm-3 .value {
+    width: 115%;
+    margin-top: 15%;
 }
 
 .formula {
@@ -40,7 +50,7 @@ a {
     text-align: center;
     width: 20%;
     margin-left: 83% !important;
-    margin-top: -8.2% !important;
+    margin-top: -7% !important;
 }
 
 .col-sm-9, .col-sm-6, .col-sm-4, .col-sm-3 {

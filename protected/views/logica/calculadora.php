@@ -5,7 +5,7 @@
 
 <h1>Calculadora Lógica</h1>
 
-<div class="form">
+<div class="form-group">
 
     <?php
     $form = $this->beginWidget('CActiveForm', array(

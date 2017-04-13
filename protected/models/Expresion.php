@@ -40,16 +40,19 @@ class Expresion {
 
     public function esMasImportante($valor, $topePila) {
         $precedencia = Operaciones::$not . Operaciones::$or . Operaciones::$and . Operaciones::$impl . Operaciones::$equiv;
-        if ($topePila == Operaciones::$parenOp) {
+        $precedencia = self::replace($precedencia);
+        $tp = self::replace($topePila);
+        $val = self::replace($valor);
+        if ($tp == Operaciones::$parenOp) {
             return false;
         }
-        if (strpos($precedencia, $topePila) === false) {
+        if (strpos($precedencia, $tp) === false) {
             return false;
         }
-        if (strpos($precedencia, $valor) === false) {
+        if (strpos($precedencia, $val) === false) {
             return false;
         }
-        if (strpos($precedencia, $topePila) >= strpos($precedencia, $valor)) {
+        if (strpos($precedencia, $tp) >= strpos($precedencia, $val)) {
             return false;
         }
         return true;

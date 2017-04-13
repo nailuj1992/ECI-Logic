@@ -24,6 +24,13 @@ class LogicaController extends Controller {
         );
     }
 
+    private function evaluar($p, $op, $q) {
+        $formula = $op == Operaciones::$not ? "$op $q" : "$p $op $q";
+        $expresion = new Expresion($formula);
+        $expresion->ejecutar();
+        return $expresion->toString();
+    }
+
     public function actionTablas() {
         $p = Operaciones::$true;
         $q = Operaciones::$true;
@@ -76,11 +83,8 @@ class LogicaController extends Controller {
         ));
     }
 
-    private function evaluar($p, $op, $q) {
-        $formula = $op == Operaciones::$not ? "$op $q" : "$p $op $q";
-        $expresion = new Expresion($formula);
-        $expresion->ejecutar();
-        return $expresion->toString();
+    public function actionCalculadora() {
+        ;
     }
 
 }

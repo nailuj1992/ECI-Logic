@@ -26,15 +26,15 @@ class Expresion {
     public function fragmentar() {
         $expresion = str_replace("", " ", str_replace(" ", "", $this->expresion));
         $expresion = strtoupper(trim($expresion));
-        $expresion = $this->replace($expresion);
+        $expresion = self::replace($expresion);
         return explode(" ", $expresion)[0];
     }
 
-    private function replace($expresion) {
+    public static function replace($expresion) {
         return str_replace(Operaciones::$not, '!', str_replace(Operaciones::$and, '&', str_replace(Operaciones::$or, '|', str_replace(Operaciones::$impl, '>', str_replace(Operaciones::$equiv, '=', $expresion)))));
     }
 
-    private function replaceBack($expresion) {
+    public static function replaceBack($expresion) {
         return str_replace('!', Operaciones::$not, str_replace('&', Operaciones::$and, str_replace('|', Operaciones::$or, str_replace('>', Operaciones::$impl, str_replace('=', Operaciones::$equiv, $expresion)))));
     }
 
@@ -89,7 +89,7 @@ class Expresion {
         $fila = $this->fila;
         $pila = $this->pila;
         while (!$fila->isEmpty()) {
-            $x = $this->replaceBack($fila->remove());
+            $x = self::replaceBack($fila->remove());
             if ($x == Operaciones::$true || $x == Operaciones::$false) {
                 $pila->add($x);
             } else {

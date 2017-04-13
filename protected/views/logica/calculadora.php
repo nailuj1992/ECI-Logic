@@ -70,22 +70,22 @@
 
 function lbl_valores($sim, $val) {
     $str = '<div class="col-xs-5ths">';
-    $str .= '<input type="submit" name="lbl_' . $sim . '" value="' . $sim . '" class="btn btn-default">';
-    $str .= '<input type="text" name="txt_' . $sim . '" value="' . $val . '" readonly class="txt boton">';
+    $str .= '<input type="submit" name="lbl[' . $sim . ']" value="' . $sim . '" class="btn btn-default">';
+    $str .= '<input type="text" name="txt[' . $sim . ']" value="' . $val . '" readonly class="txt boton">';
     $str .= '</div>';
     return $str;
 }
 
 function botonesSimbolos($sim) {
     $str = '<div class="col-sm-4">';
-    $str .= '<input type="submit" name="btn_' . $sim . '" value="' . $sim . '" class="btn btn-default">';
+    $str .= '<input type="submit" name="btn[' . $sim . ']" value="' . $sim . '" class="btn btn-default">';
     $str .= '</div>';
     return $str;
 }
 
 function botonesOperaciones($sim, $val, $class) {
     $str = '<div class="col-sm-6">';
-    $str .= '<input type="submit" name="btn_' . $sim . '" value="' . $val . '" class="btn btn-' . $class . '">';
+    $str .= '<input type="submit" name="btn[' . $sim . ']" value="' . $val . '" class="btn btn-' . $class . '">';
     $str .= '</div>';
     return $str;
 }

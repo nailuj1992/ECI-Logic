@@ -84,7 +84,16 @@ class LogicaController extends Controller {
     }
 
     public function actionCalculadora() {
-        ;
+        $p = $q = $r = $s = $t = $u = $v = $x = $y = $z = Operaciones::$true;
+        $formula = $valor = "";
+
+        $this->render('calculadora', array(
+            'p' => $p, 'q' => $q, 'r' => $r, 's' => $s,
+            't' => $t, 'u' => $u, 'v' => $v,
+            'x' => $x, 'y' => $y, 'z' => $z,
+            'formula' => $formula,
+            'valor' => $valor,
+        ));
     }
 
 }

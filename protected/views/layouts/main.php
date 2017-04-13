@@ -39,6 +39,7 @@
                     'items' => array(
                         array('label' => 'Inicio', 'url' => array('/')),
                         array('label' => 'Tablas de Verdad', 'url' => array('logica/tablas')),
+                        array('label' => 'Calculadora', 'url' => array('logica/calculadora')),
                         array('label' => 'Acerca de', 'url' => array('/site/page', 'view' => 'about')),
                     ),
                 ));

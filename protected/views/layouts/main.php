@@ -15,10 +15,10 @@
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" rel="stylesheet">
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/responsive.css" rel="stylesheet">
 
-        <!--[if lt IE 9]>
-                <script src="js/html5shiv.js"></script>
-                <script src="js/respond.min.js"></script>
-        <![endif]-->
+        <!--<[if lt IE 9]>-->
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/html5shiv.js"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/respond.min.js"></script>
+        <!--<![endif]>-->
 
         <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/favicon.ico">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-144-precomposed.png">
@@ -35,7 +35,7 @@
 
         <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">-->
         <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">-->
-        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom.css">-->
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom.css">
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     </head>
@@ -106,10 +106,9 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="copyright-text text-center">
-                            <p>Copyright &copy; <?php echo date('Y'); ?> by Escuela Colombiana de Ingeniería.</p>
-                            <p>All Rights Reserved.</p>
-                            <!--<p>Crafted by <a target="_blank" href="http://designscrazed.org/">Allie</a></p>-->
-                            <?php echo Yii::powered(); ?>
+                            <p>Copyright &copy; <?php echo date('Y'); ?>.</p>
+                            <p>Escuela Colombiana de Ingeniería. All Rights Reserved.</p>
+                            <p>Crafted by <a target="_blank" href="http://designscrazed.org/">Allie</a>. <?php echo Yii::powered(); ?></p>
                         </div>
                     </div>
                 </div>

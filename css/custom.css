@@ -1,9 +1,22 @@
-a {
-    text-decoration: none !important;
-    vertical-align: inherit !important;
+.formula {
+    width: 80% !important;
 }
 
-.txt {
+.valor {
+    width: 15% !important;
+}
+
+.simbolo {
+    width: 40% !important;
+    text-align: center !important;
+}
+
+/*a {
+    text-decoration: none !important;
+    vertical-align: inherit !important;
+}*/
+
+/*.txt {
     font-weight: 400;
     line-height: 1.42857;
     margin-bottom: 0;
@@ -30,9 +43,9 @@ a {
     width: 45%;
     margin-left: 50% !important;
     margin-top: -42% !important;
-}
+}*/
 
-.col-sm-3 .boton {
+/*.col-sm-3 .boton {
     width: 70%;
     margin-top: 15%;
 }
@@ -40,9 +53,9 @@ a {
 .col-sm-3 .value {
     width: 115%;
     margin-top: 15%;
-}
+}*/
 
-.formula {
+/*.formula {
     width: 82%;
 }
 
@@ -51,13 +64,13 @@ a {
     width: 20%;
     margin-left: 83% !important;
     margin-top: -7% !important;
-}
+}*/
 
-.col-sm-9, .col-sm-6, .col-sm-4, .col-sm-3 {
+/*.col-sm-9, .col-sm-6, .col-sm-4, .col-sm-3 {
     margin-top: 2% !important;
-}
+}*/
 
-.col-xs-5ths, .col-sm-5ths, .col-md-5ths, .col-lg-5ths {
+/*.col-xs-5ths, .col-sm-5ths, .col-md-5ths, .col-lg-5ths {
     position: relative;
     min-height: 1px;
     padding-right: 10px;
@@ -86,4 +99,4 @@ a {
         width: 20%;
         float: left;
     }
-}
+}*/

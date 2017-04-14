@@ -10,7 +10,7 @@ return array(
         'ext' => realpath(__DIR__ . '/../extensions'),
     ),
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'Logica',
+    'name' => 'Logica Proposicional',
     'sourceLanguage' => 'es',
     'language' => 'es',
     // preloading 'log' component

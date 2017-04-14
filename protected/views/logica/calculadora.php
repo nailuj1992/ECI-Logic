@@ -20,16 +20,26 @@
     </div>
 
     <div class="col-sm-9">
-        <?php echo lbl_valores('p', $p); ?>
-        <?php echo lbl_valores('r', $r); ?>
-        <?php echo lbl_valores('t', $t); ?>
-        <?php echo lbl_valores('v', $v); ?>
-        <?php echo lbl_valores('y', $y); ?>
-        <?php echo lbl_valores('q', $q); ?>
-        <?php echo lbl_valores('s', $s); ?>
-        <?php echo lbl_valores('u', $u); ?>
-        <?php echo lbl_valores('x', $x); ?>
-        <?php echo lbl_valores('z', $z); ?>
+        <div class="col-sm-2">
+            <?php echo lbl_valores('p', $p); ?>
+            <?php echo lbl_valores('q', $q); ?>
+        </div>
+        <div class="col-sm-2">
+            <?php echo lbl_valores('r', $r); ?>
+            <?php echo lbl_valores('s', $s); ?>
+        </div>
+        <div class="col-sm-2">
+            <?php echo lbl_valores('t', $t); ?>
+            <?php echo lbl_valores('u', $u); ?>
+        </div>
+        <div class="col-sm-2">
+            <?php echo lbl_valores('v', $v); ?>
+            <?php echo lbl_valores('x', $x); ?>
+        </div>
+        <div class="col-sm-2">
+            <?php echo lbl_valores('y', $y); ?>
+            <?php echo lbl_valores('z', $z); ?>
+        </div>
     </div>
 
     <div class="col-sm-6">
@@ -69,7 +79,7 @@
 <?php
 
 function lbl_valores($sim, $val) {
-    $str = '<div class="col-xs-5ths">';
+    $str = '<div>';
     $str .= '<input type="submit" name="lbl[' . $sim . ']" value="' . $sim . '" class="btn btn-default">';
     $str .= '<input type="text" name="txt[' . $sim . ']" value="' . $val . '" readonly class="txt boton">';
     $str .= '</div>';

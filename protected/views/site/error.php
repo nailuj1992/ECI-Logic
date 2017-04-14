@@ -3,14 +3,24 @@
 /* @var $error array */
 
 $this->pageTitle = Yii::app()->name . ' - Error';
-$this->breadcrumbs = array(
-    'Error',
-);
 ?>
 
-<h2>Error <?php echo $code; ?></h2>
-
-<div class="error">
-    <p><?php echo CHtml::encode($message); ?></p>
-    <a href="javascript:history.back()" class="btn btn-danger">Ir a la página anterior</a>
-</div>
+<section id="error-page">
+    <div class="error-page-inner">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                        <div class="bg-404">
+                            <div class="error-image">                                
+                                <h1><?php echo $code; ?></h1>
+                            </div>
+                        </div>
+                        <?php echo CHtml::encode($message); ?>
+                        <a href="javascript:history.back()" class="btn btn-error">Ir a la página anterior</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

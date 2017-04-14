@@ -7,44 +7,84 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="language" content="es">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+        <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome.min.css" rel="stylesheet">
+        <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/animate.min.css" rel="stylesheet"> 
+        <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/lightbox.css" rel="stylesheet"> 
+        <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" rel="stylesheet">
+        <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/responsive.css" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+                <script src="js/html5shiv.js"></script>
+                <script src="js/respond.min.js"></script>
+        <![endif]-->
+
+        <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-57-precomposed.png">
 
         <!-- blueprint CSS framework -->
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection">
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">
+        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection">-->
+        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">-->
         <!--[if lt IE 8]>
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
         <![endif]-->
 
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom.css">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">-->
+        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">-->
+        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom.css">-->
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     </head>
 
     <body>
+        <header id="header">
+            <div class="navbar navbar-inverse" role="banner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <?php
+                        echo CHtml::link(
+                                '<h1><img src="' . Yii::app()->request->baseUrl . '/images/logo.png" alt="logo"></h1>'
+                                . CHtml::encode(Yii::app()->name), array('/'), array('class' => 'navbar-brand'));
+                        ?>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><?php echo CHtml::link('Inicio', array('/')); ?></li>
+                            <li class="dropdown"><a href="#">Actividades <i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><?php echo CHtml::link('Tablas de Verdad', array('logica/tablas')); ?></li>
+                                    <li><?php echo CHtml::link('Calculadora Lógica', array('logica/calculadora')); ?></li>
+                                </ul>
+                            </li>
+                            <li><?php echo CHtml::link('Acerca de', array('/site/page', 'view' => 'about')); ?></li>
+                            <!--<li><?php echo CHtml::link('Contáctanos', array('/site/contact')); ?></li>-->
+                        </ul>
+                    </div>
+                    <div class="search">
+                        <form role="form">
+                            <i class="fa fa-search"></i>
+                            <div class="field-toggle">
+                                <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--/#header-->
 
         <div class="container" id="page">
-
-            <div id="header">
-                <div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-            </div><!-- header -->
-
-            <div id="mainmenu">
-                <?php
-                $this->widget('zii.widgets.CMenu', array(
-                    'items' => array(
-                        array('label' => 'Inicio', 'url' => array('/')),
-                        array('label' => 'Tablas de Verdad', 'url' => array('logica/tablas')),
-                        array('label' => 'Calculadora', 'url' => array('logica/calculadora')),
-                        array('label' => 'Acerca de', 'url' => array('/site/page', 'view' => 'about')),
-                    ),
-                ));
-                ?>
-            </div><!-- mainmenu -->
             <?php if (isset($this->breadcrumbs)): ?>
                 <?php
                 $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -56,14 +96,32 @@
             <?php echo $content; ?>
 
             <div class="clear"></div>
+        </div>
 
-            <div id="footer">
-                Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-                All Rights Reserved.<br/>
-                <?php echo Yii::powered(); ?>
-            </div><!-- footer -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center bottom-separator">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/home/under.png" class="img-responsive inline" alt="">
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="copyright-text text-center">
+                            <p>Copyright &copy; <?php echo date('Y'); ?> by Escuela Colombiana de Ingeniería.</p>
+                            <p>All Rights Reserved.</p>
+                            <!--<p>Crafted by <a target="_blank" href="http://designscrazed.org/">Allie</a></p>-->
+                            <?php echo Yii::powered(); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--/#footer-->
 
-        </div><!-- page -->
-
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lightbox.min.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/wow.min.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script>
     </body>
 </html>

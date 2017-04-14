@@ -14,7 +14,7 @@ class Operaciones {
     public static $equiv = "≡";
     public static $parenOp = "(";
     public static $parenCl = ")";
-    public static $true = "T";
+    public static $true = "V";
     public static $false = "F";
 
     public static function funcNot($p) {

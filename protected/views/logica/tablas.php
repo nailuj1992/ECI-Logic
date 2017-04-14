@@ -34,10 +34,6 @@
             <input type="submit" name="lbl_v" value="=" class="btn btn-lg btn-success">
             <input type="text" name="txt_v" value="<?php echo $v; ?>" readonly class="form-control simbolo">
         </div>
-
-        <div class="col-sm-9">
-            <?php echo CHtml::link('Volver', array('/'), array('class' => 'btn btn-danger')); ?>
-        </div>
     </div>
 
     <?php $this->endWidget(); ?>

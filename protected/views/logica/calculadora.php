@@ -15,8 +15,8 @@
     ?>
 
     <div class="col-sm-8 form-inline">
-        <input type="text" name="txt_formula" value="<?php echo $formula; ?>" readonly class="form-control formula">
-        <input type="text" name="txt_valor" value="<?php echo $valor; ?>" readonly class="form-control valor">
+        <input type="text" name="txt_formula" id="txt_formula" value="<?php echo $formula; ?>" readonly class="form-control formula">
+        <input type="text" name="txt_valor" id="txt_valor" value="<?php echo $valor; ?>" readonly class="form-control valor">
     </div>
 
     <div class="col-sm-9">
@@ -58,18 +58,16 @@
     </div>
 
     <div class="col-sm-3">
-        <?php echo botonesOperaciones('del', 'DEL', 'btn btn-lg btn-warning') ?>
-        <?php echo botonesOperaciones('ac', 'AC', 'btn btn-lg btn-danger') ?>
-        <?php echo botonesOperaciones('equiv', Operaciones::$equiv, 'btn btn-lg btn-default') ?>
-        <?php echo botonesOperaciones('impl', Operaciones::$impl, 'btn btn-lg btn-default') ?>
-        <?php echo botonesOperaciones('and', Operaciones::$and, 'btn btn-lg btn-default') ?>
-        <?php echo botonesOperaciones('or', Operaciones::$or, 'btn btn-lg btn-default') ?>
-        <?php echo botonesOperaciones('not', Operaciones::$not, 'btn btn-lg btn-default') ?>
-        <?php echo botonesOperaciones('igual', '=', 'btn btn-lg btn-success') ?>
-    </div>
-
-    <div class="col-sm-9">
-        <?php echo CHtml::link('Volver', array('/'), array('class' => 'btn btn-danger')); ?>
+        <?php echo botonesOperaciones('del', 'DEL', 'btn btn-lg btn-warning', 'delFormula()') ?>
+        <?php echo botonesOperaciones('ac', 'AC', 'btn btn-lg btn-danger', 'acFormula()') ?>
+        <?php echo botonesOperaciones('equiv', Operaciones::$equiv, 'btn btn-lg btn-default', 'addFormula(this)') ?>
+        <?php echo botonesOperaciones('impl', Operaciones::$impl, 'btn btn-lg btn-default', 'addFormula(this)') ?>
+        <?php echo botonesOperaciones('and', Operaciones::$and, 'btn btn-lg btn-default', 'addFormula(this)') ?>
+        <?php echo botonesOperaciones('or', Operaciones::$or, 'btn btn-lg btn-default', 'addFormula(this)') ?>
+        <?php echo botonesOperaciones('not', Operaciones::$not, 'btn btn-lg btn-default', 'addFormula(this)') ?>
+        <div class="col-sm-4">
+            <input type="submit" name="btn[igual]" value="=" class="btn btn-lg btn-success">
+        </div>
     </div>
 
     <?php $this->endWidget(); ?>
@@ -88,14 +86,14 @@ function lbl_valores($sim, $val) {
 
 function botonesSimbolos($sim) {
     $str = '<div class="col-sm-4">';
-    $str .= '<input type="submit" name="btn[' . $sim . ']" value="' . $sim . '" class="btn btn-lg btn-default">';
+    $str .= CHtml::link($sim, '', array('class' => 'btn btn-lg btn-default', 'onclick' => 'addFormula(this)'));
     $str .= '</div>';
     return $str;
 }
 
-function botonesOperaciones($sim, $val, $class) {
+function botonesOperaciones($sim, $val, $class, $onclick) {
     $str = '<div class="col-sm-6">';
-    $str .= '<input type="submit" name="btn[' . $sim . ']" value="' . $val . '" class="' . $class . '">';
+    $str .= CHtml::link($val, '', array('class' => $class, 'onclick' => $onclick));
     $str .= '</div>';
     return $str;
 }

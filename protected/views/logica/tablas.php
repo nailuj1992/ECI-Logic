@@ -1,9 +1,9 @@
 <?php
 /* @var $this LogicaController */
 /* @var $form CActiveForm */
-?>
 
-<h1>Tablas de Verdad</h1>
+echo '<h1>' . Funcion::tablas . '</h1>';
+?>
 
 <div class="form-group">
 

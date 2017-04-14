@@ -24,14 +24,25 @@ class LogicaController extends Controller {
         );
     }
 
-    private function evaluar($p, $op, $q) {
+    private function evaluarTabla($p, $op, $q) {
         $formula = $op == Operaciones::$not ? "$op $q" : "$p $op $q";
+        return $this->evaluar($formula);
+    }
+
+    private function evaluarFormula($variables, $valores, $formula) {
+        $eval = str_replace($variables, $valores, $formula);
+        return $this->evaluar($eval);
+    }
+
+    private function evaluar($formula) {
         $expresion = new Expresion($formula);
         $expresion->ejecutar();
-        return $expresion->toString();
+        return (string) $expresion;
     }
 
     public function actionTablas() {
+        $this->param = Funcion::tablas;
+
         $p = Operaciones::$true;
         $q = Operaciones::$true;
         $op = Operaciones::$not;
@@ -41,12 +52,12 @@ class LogicaController extends Controller {
             $p = Operaciones::funcNot($_POST['txt_p']);
             $q = $_POST['txt_q'];
             $op = $_POST['txt_op'];
-            $v = $this->evaluar($p, $op, $q);
+            $v = $this->evaluarTabla($p, $op, $q);
         } else if (isset($_POST['lbl_q'])) {
             $p = $_POST['txt_p'];
             $q = Operaciones::funcNot($_POST['txt_q']);
             $op = $_POST['txt_op'];
-            $v = $this->evaluar($p, $op, $q);
+            $v = $this->evaluarTabla($p, $op, $q);
         } else if (isset($_POST['lbl_op'])) {
             $p = $_POST['txt_p'];
             $q = $_POST['txt_q'];
@@ -67,12 +78,12 @@ class LogicaController extends Controller {
                     $op = Operaciones::$not;
                     break;
             }
-            $v = $this->evaluar($p, $op, $q);
+            $v = $this->evaluarTabla($p, $op, $q);
         } else if (isset($_POST['lbl_v'])) {
             $p = $_POST['txt_p'];
             $q = $_POST['txt_q'];
             $op = $_POST['txt_op'];
-            $v = $this->evaluar($p, $op, $q);
+            $v = $this->evaluarTabla($p, $op, $q);
         }
 
         $this->render('tablas', array(
@@ -84,6 +95,8 @@ class LogicaController extends Controller {
     }
 
     public function actionCalculadora() {
+        $this->param = Funcion::calculadora;
+
         $p = $q = $r = $s = $t = $u = $v = $x = $y = $z = Operaciones::$true;
         $formula = $valor = "";
 
@@ -104,10 +117,9 @@ class LogicaController extends Controller {
 
             $formula = $_POST['txt_formula'];
             if ($formula != "") {
-                $eval = str_replace(array('p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z'), array($p, $q, $r, $s, $t, $u, $v, $x, $y, $z), $formula);
-                $expresion = new Expresion($eval);
-                $expresion->ejecutar();
-                $valor = $expresion->toString();
+                $variables = array('p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z');
+                $valores = array($p, $q, $r, $s, $t, $u, $v, $x, $y, $z);
+                $valor = $this->evaluarFormula($variables, $valores, $formula);
             } else {
                 $valor = $_POST['txt_valor'];
             }
@@ -144,10 +156,9 @@ class LogicaController extends Controller {
 
                 $formula = $_POST['txt_formula'];
                 if ($formula != "") {
-                    $eval = str_replace(array('p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z'), array($p, $q, $r, $s, $t, $u, $v, $x, $y, $z), $formula);
-                    $expresion = new Expresion($eval);
-                    $expresion->ejecutar();
-                    $valor = $expresion->toString();
+                    $variables = array('p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z');
+                    $valores = array($p, $q, $r, $s, $t, $u, $v, $x, $y, $z);
+                    $valor = $this->evaluarFormula($variables, $valores, $formula);
                 } else {
                     $valor = $_POST['txt_valor'];
                 }

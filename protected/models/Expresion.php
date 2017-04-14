@@ -23,13 +23,6 @@ class Expresion {
         $this->resolver();
     }
 
-    public function fragmentar() {
-        $expresion = str_replace("", " ", str_replace(" ", "", $this->expresion));
-        $expresion = strtoupper(trim($expresion));
-        $expresion = self::replace($expresion);
-        return explode(" ", $expresion)[0];
-    }
-
     public static function replace($expresion) {
         return str_replace(Operaciones::$not, '!', str_replace(Operaciones::$and, '&', str_replace(Operaciones::$or, '|', str_replace(Operaciones::$impl, '>', str_replace(Operaciones::$equiv, '=', $expresion)))));
     }
@@ -38,7 +31,14 @@ class Expresion {
         return str_replace('!', Operaciones::$not, str_replace('&', Operaciones::$and, str_replace('|', Operaciones::$or, str_replace('>', Operaciones::$impl, str_replace('=', Operaciones::$equiv, $expresion)))));
     }
 
-    public function esMasImportante($valor, $topePila) {
+    private function fragmentar() {
+        $expresion = str_replace("", " ", str_replace(" ", "", $this->expresion));
+        $expresion = strtoupper(trim($expresion));
+        $expresion = self::replace($expresion);
+        return explode(" ", $expresion)[0];
+    }
+
+    private function esMasImportante($valor, $topePila) {
         $precedencia = Operaciones::$not . Operaciones::$or . Operaciones::$and . Operaciones::$impl . Operaciones::$equiv;
         $precedencia = self::replace($precedencia);
         $tp = self::replace($topePila);
@@ -58,7 +58,7 @@ class Expresion {
         return true;
     }
 
-    public function separar() {
+    private function separar() {
         $fila = new Fila();
         $pila = new Pila();
         for ($i = 0; $i < strlen($this->segmentos); $i++) {
@@ -88,7 +88,7 @@ class Expresion {
         $this->pila = $pila;
     }
 
-    public function resolver() {
+    private function resolver() {
         $fila = $this->fila;
         $pila = $this->pila;
         while (!$fila->isEmpty()) {
@@ -128,7 +128,7 @@ class Expresion {
         $this->pila = $pila;
     }
 
-    public function toString() {
+    public function __toString() {
         return (string) $this->pila;
     }
 

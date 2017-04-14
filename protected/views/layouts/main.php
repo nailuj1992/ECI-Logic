@@ -60,14 +60,39 @@
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><?php echo CHtml::link('Inicio', array('/')); ?></li>
+                            <?php
+                            $inicioActive = '';
+                            if (!$this->param) {
+                                $inicioActive = 'class="active"';
+                            }
+                            echo "<li $inicioActive>";
+                            ?>
+                            <li <?php echo $inicioActive ?>><?php echo CHtml::link('Inicio', array('/')); ?></li>
                             <li class="dropdown"><a href="#">Actividades <i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><?php echo CHtml::link('Tablas de Verdad', array('logica/tablas')); ?></li>
-                                    <li><?php echo CHtml::link('Calculadora Lógica', array('logica/calculadora')); ?></li>
+                                    <?php
+                                    $tablasActive = '';
+                                    if ($this->param == Funcion::tablas) {
+                                        $tablasActive = 'class="active"';
+                                    }
+                                    ?>
+                                    <li <?php echo $tablasActive ?>><?php echo CHtml::link(Funcion::tablas, array('logica/tablas')); ?></li>
+                                    <?php
+                                    $calculadoraActive = '';
+                                    if ($this->param == Funcion::calculadora) {
+                                        $calculadoraActive = 'class="active"';
+                                    }
+                                    ?>
+                                    <li <?php echo $calculadoraActive ?>><?php echo CHtml::link(Funcion::calculadora, array('logica/calculadora')); ?></li>
                                 </ul>
                             </li>
-                            <li><?php echo CHtml::link('Acerca de', array('/site/page', 'view' => 'about')); ?></li>
+                            <?php
+                            $acercaActive = '';
+                            if ($this->param == Funcion::acerca) {
+                                $acercaActive = 'class="active"';
+                            }
+                            ?>
+                            <li  <?php echo $acercaActive ?>><?php echo CHtml::link(Funcion::acerca, array('/site/page', 'view' => 'about')); ?></li>
                             <!--<li><?php echo CHtml::link('Contáctanos', array('/site/contact')); ?></li>-->
                         </ul>
                     </div>

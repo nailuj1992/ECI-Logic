@@ -1,9 +1,9 @@
 <?php
 /* @var $this LogicaController */
 /* @var $form CActiveForm */
-?>
 
-<h1>Calculadora Lógica</h1>
+echo '<h1>' . Funcion::calculadora . '</h1>';
+?>
 
 <div class="form-group">
 

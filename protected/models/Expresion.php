@@ -35,7 +35,16 @@ class Expresion {
             }
         }
         if ($parentesis == 0) {
-            $pattern = "/^(¬*[(]*?|([FV]|[(]*[¬]*?[FV])[)]*?(∨|∧|→|≡)[(]?[¬]?[(]?)*(F|V|[FV][)]*)$/";
+            $not = Operaciones::$not;
+            $and = Operaciones::$and;
+            $or = Operaciones::$or;
+            $impl = Operaciones::$impl;
+            $equiv = Operaciones::$equiv;
+            $parenOp = Operaciones::$parenOp;
+            $parenCl = Operaciones::$parenCl;
+            $false = Operaciones::$false;
+            $true = Operaciones::$true;
+            $pattern = "/^($not*[$parenOp]*?|([$false$true]|[$parenOp]*[$not]*?[$false$true])[$parenCl]*?($or|$and|$impl|$equiv)[$parenOp]?[$not]?[$parenOp]?)*($false|$true|[$false$true][$parenCl]*)$/";
             if (preg_match($pattern, $expresion)) {
                 return true;
             }

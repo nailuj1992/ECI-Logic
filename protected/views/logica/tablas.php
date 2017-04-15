@@ -1,9 +1,9 @@
 <?php
 /* @var $this LogicaController */
 /* @var $form CActiveForm */
-
-echo '<h1>' . Funcion::tablas . '</h1>';
 ?>
+
+<h1><?php echo Funcion::tablas; ?></h1>
 
 <div class="form-group">
 
@@ -37,5 +37,4 @@ echo '<h1>' . Funcion::tablas . '</h1>';
     </div>
 
     <?php $this->endWidget(); ?>
-
 </div>

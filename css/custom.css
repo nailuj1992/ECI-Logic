@@ -11,6 +11,15 @@
     text-align: center !important;
 }
 
+body {
+    background-image: url('../images/background/Auchindoun.jpg') !important;
+    background-repeat: no-repeat !important;
+}
+
+h1, p {
+    color: #ffffff;
+}
+
 /*a {
     text-decoration: none !important;
     vertical-align: inherit !important;

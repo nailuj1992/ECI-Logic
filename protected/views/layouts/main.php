@@ -7,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="language" content="es">
 
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.min.css" rel="stylesheet">
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome.min.css" rel="stylesheet">
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/animate.min.css" rel="stylesheet"> 
@@ -26,15 +25,6 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-57-precomposed.png">
 
-        <!-- blueprint CSS framework -->
-        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection">-->
-        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">-->
-        <!--[if lt IE 8]>
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
-        <![endif]-->
-
-        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">-->
-        <!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">-->
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom.css">
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
@@ -51,12 +41,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
-                        <?php
-                        echo CHtml::link(
-                                '<h1><img src="' . Yii::app()->request->baseUrl . '/images/logo.png" alt="logo"></h1>'
-                                . CHtml::encode(Yii::app()->name), array('/'), array('class' => 'navbar-brand'));
-                        ?>
+                        <?php echo CHtml::link('<h1><img src="' . Yii::app()->request->baseUrl . '/images/logo.png" alt="logo"></h1>', array('/'), array('class' => 'navbar-brand')); ?>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -117,7 +102,6 @@
                 ));
                 ?><!-- breadcrumbs -->
             <?php endif ?>
-
             <?php
             // Links:
             // https://youtu.be/z1HT_qfJj3g
@@ -136,9 +120,7 @@
                 ),
             ));
             ?>
-
             <?php echo $content; ?>
-
             <div class="clear"></div>
         </div>
 
@@ -160,7 +142,6 @@
         </footer>
         <!--/#footer-->
 
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lightbox.min.js"></script>

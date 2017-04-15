@@ -23,6 +23,27 @@ class Expresion {
         $this->resolver();
     }
 
+    public function validar($formula) {
+        $parentesis = 0;
+        $expresion = strtoupper(trim(str_replace(" ", "", $formula)));
+        for ($i = 0; $i < strlen($expresion); $i++) {
+            if ($expresion{$i} == Operaciones::$parenOp) {
+                $parentesis++;
+            }
+            if ($expresion{$i} == Operaciones::$parenCl) {
+                $parentesis--;
+            }
+        }
+        if ($parentesis == 0) {
+            $pattern = "/^(¬*[(]*?|([FV]|[(]*[¬]*?[FV])[)]*?(∨|∧|→|≡)[(]?[¬]?[(]?)*(F|V|[FV][)]*)$/";
+            if (preg_match($pattern, $expresion)) {
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
     public static function replace($expresion) {
         return str_replace(Operaciones::$not, '!', str_replace(Operaciones::$and, '&', str_replace(Operaciones::$or, '|', str_replace(Operaciones::$impl, '>', str_replace(Operaciones::$equiv, '=', $expresion)))));
     }

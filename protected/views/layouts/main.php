@@ -118,6 +118,25 @@
                 ?><!-- breadcrumbs -->
             <?php endif ?>
 
+            <?php
+            // Links:
+            // https://youtu.be/z1HT_qfJj3g
+            // http://yiibooster.clevertech.biz/widgets/decorations/view/alert.html
+            $this->widget('booster.widgets.TbAlert', array(
+                'fade' => true,
+                'closeText' => '&times;',
+                'events' => array(),
+                'htmlOptions' => array(),
+                'userComponentId' => 'user',
+                'alerts' => array(
+                    'success' => array('closeText' => '&times;'),
+                    'info',
+                    'warning' => array('closeText' => false),
+                    'danger',
+                ),
+            ));
+            ?>
+
             <?php echo $content; ?>
 
             <div class="clear"></div>

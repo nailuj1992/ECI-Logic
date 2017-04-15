@@ -11,4 +11,8 @@ class Funcion {
     const calculadora = "Calculadora Lógica";
     const acerca = "Acerca de";
 
+    public static function setFlash($type, $title, $message) {
+        Yii::app()->user->setFlash($type, "<h4><strong>$title</strong></h4> $message");
+    }
+
 }

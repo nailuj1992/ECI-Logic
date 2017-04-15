@@ -5,7 +5,7 @@
  *
  * @author Julian Gonzalez Prieto (Avuuna, la Luz del Alba).
  */
-class Fila {
+class Fila implements Struct {
 
     private $fila;
 

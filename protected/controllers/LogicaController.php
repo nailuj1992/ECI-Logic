@@ -36,8 +36,13 @@ class LogicaController extends Controller {
 
     private function evaluar($formula) {
         $expresion = new Expresion($formula);
-        $expresion->ejecutar();
-        return (string) $expresion;
+        if ($expresion->validar($formula)) {
+            $expresion->ejecutar();
+            return (string) $expresion;
+        } else {
+            Funcion::setFlash('danger', 'Error', LogicaException::$invalidForm);
+            return null;
+        }
     }
 
     public function actionTablas() {

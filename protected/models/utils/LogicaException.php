@@ -5,8 +5,9 @@
  *
  * @author Julian Gonzalez Prieto (Avuuna, la Luz del Alba).
  */
-class ListException extends CException {
+class LogicaException extends CException {
 
     public static $emptyList = "Empty list";
+    public static $invalidForm = "Formula invalida";
 
 }

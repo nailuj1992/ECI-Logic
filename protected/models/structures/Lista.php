@@ -57,7 +57,7 @@ class Lista {
 
     public function removeBegin() {
         if ($this->isEmpty()) {
-            return null;//throw new ListException(ListException::$emptyList);
+            return null;//throw new LogicaException(LogicaException::$emptyList);
         }
         $removed = $this->first->obj;
         if ($this->first == $this->last) {
@@ -70,7 +70,7 @@ class Lista {
 
     public function removeEnd() {
         if ($this->isEmpty()) {
-            return null;//throw new ListException(ListException::$emptyList);
+            return null;//throw new LogicaException(LogicaException::$emptyList);
         }
         $removed = $this->last->obj;
         if ($this->first == $this->last) {
@@ -88,14 +88,14 @@ class Lista {
 
     public function getBegin() {
         if ($this->isEmpty()) {
-            return null;//throw new ListException(ListException::$emptyList);
+            return null;//throw new LogicaException(LogicaException::$emptyList);
         }
         return $this->first->obj;
     }
 
     public function getEnd() {
         if ($this->isEmpty()) {
-            return null;//throw new ListException(ListException::$emptyList);
+            return null;//throw new LogicaException(LogicaException::$emptyList);
         }
         return $this->last->obj;
     }

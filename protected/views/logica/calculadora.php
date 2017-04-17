@@ -18,10 +18,10 @@
     <table cellSpacing="3" cellPadding="1" border="0" class="col-sm-6 col-sm-offset-3">
         <caption align="top"><h1><?php echo Funcion::calculadora; ?></h1></caption>
         <tr>
-            <td colspan="3">
+            <td colspan="4">
                 <input type="text" name="txt_formula" id="txt_formula" value="<?php echo $formula; ?>" readonly class="form-control">
             </td>
-            <td colspan="2">
+            <td colspan="1">
                 <input type="text" name="txt_valor" id="txt_valor" value="<?php echo $valor; ?>" readonly class="form-control">
             </td>
         </tr>

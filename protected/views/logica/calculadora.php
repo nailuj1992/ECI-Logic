@@ -7,7 +7,7 @@
 
     <?php
     $form = $this->beginWidget('CActiveForm', array(
-        'id' => 'tablas-form',
+        'id' => 'calculadora-form',
         'enableAjaxValidation' => false,
     ));
     ?>

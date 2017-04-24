@@ -9,6 +9,7 @@ class Funcion {
 
     const tablas = "Tablas de Verdad";
     const calculadora = "Calculadora Lógica";
+    const parentesis = "Paréntesis";
     const acerca = "Acerca de";
 
     public static function setFlash($type, $title, $message) {

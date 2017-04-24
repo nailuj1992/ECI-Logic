@@ -179,4 +179,10 @@ class LogicaController extends Controller {
         ));
     }
 
+    public function actionParentesis() {
+        $this->param = Funcion::parentesis;
+
+        $this->render('parentesis', array());
+    }
+
 }

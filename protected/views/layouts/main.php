@@ -50,10 +50,15 @@
                             if (!$this->param) {
                                 $inicioActive = 'class="active"';
                             }
-                            echo "<li $inicioActive>";
                             ?>
                             <li <?php echo $inicioActive ?>><?php echo CHtml::link('Inicio', array('/')); ?></li>
-                            <li class="dropdown"><a href="#">Actividades <i class="fa fa-angle-down"></i></a>
+                            <?php
+                            $actividadesActive = '';
+                            if ($this->param == Funcion::tablas || $this->param == Funcion::calculadora) {
+                                $actividadesActive = 'active';
+                            }
+                            ?>
+                            <li class="dropdown <?php echo $actividadesActive ?>"><a href="#">Actividades <i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <?php
                                     $tablasActive = '';
@@ -69,6 +74,23 @@
                                     }
                                     ?>
                                     <li <?php echo $calculadoraActive ?>><?php echo CHtml::link(Funcion::calculadora, array('logica/calculadora')); ?></li>
+                                </ul>
+                            </li>
+                            <?php
+                            $retosActive = '';
+                            if ($this->param == Funcion::parentesis) {
+                                $retosActive = 'active';
+                            }
+                            ?>
+                            <li class="dropdown <?php echo $retosActive ?>"><a href="#">Retos <i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <?php
+                                    $parentesisActive = '';
+                                    if ($this->param == Funcion::parentesis) {
+                                        $parentesisActive = 'class="active"';
+                                    }
+                                    ?>
+                                    <li <?php echo $parentesisActive ?>><?php echo CHtml::link(Funcion::parentesis, array('logica/parentesis')); ?></li>
                                 </ul>
                             </li>
                             <?php

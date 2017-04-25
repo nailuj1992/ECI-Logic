@@ -25,7 +25,10 @@ class Expresion {
 
     public function validar($formula) {
         $parentesis = 0;
-        $expresion = strtoupper(trim(str_replace(" ", "", $formula)));
+        $expresion = trim(str_replace(" ", "", $formula));
+        $expresion = self::replace($expresion);
+        $expresion = strtoupper($expresion);
+        $expresion = self::replaceBack($expresion);
         for ($i = 0; $i < strlen($expresion); $i++) {
             if ($expresion{$i} == Operaciones::$parenOp) {
                 $parentesis++;
@@ -54,17 +57,17 @@ class Expresion {
     }
 
     public static function replace($expresion) {
-        return str_replace(Operaciones::$not, '!', str_replace(Operaciones::$and, '&', str_replace(Operaciones::$or, '|', str_replace(Operaciones::$impl, '>', str_replace(Operaciones::$equiv, '=', $expresion)))));
+        return str_replace(Operaciones::$not, 'N', str_replace(Operaciones::$and, 'A', str_replace(Operaciones::$or, 'O', str_replace(Operaciones::$impl, 'I', str_replace(Operaciones::$equiv, 'E', $expresion)))));
     }
 
     public static function replaceBack($expresion) {
-        return str_replace('!', Operaciones::$not, str_replace('&', Operaciones::$and, str_replace('|', Operaciones::$or, str_replace('>', Operaciones::$impl, str_replace('=', Operaciones::$equiv, $expresion)))));
+        return str_replace('N', Operaciones::$not, str_replace('A', Operaciones::$and, str_replace('O', Operaciones::$or, str_replace('I', Operaciones::$impl, str_replace('E', Operaciones::$equiv, $expresion)))));
     }
 
     private function fragmentar() {
         $expresion = str_replace("", " ", str_replace(" ", "", $this->expresion));
-        $expresion = strtoupper(trim($expresion));
         $expresion = self::replace($expresion);
+        $expresion = strtoupper(trim($expresion));
         return explode(" ", $expresion)[0];
     }
 

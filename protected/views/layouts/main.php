@@ -78,19 +78,19 @@
                             </li>
                             <?php
                             $retosActive = '';
-                            if ($this->param == Funcion::parentesis) {
+                            if ($this->param == Funcion::conector) {
                                 $retosActive = 'active';
                             }
                             ?>
                             <li class="dropdown <?php echo $retosActive ?>"><a href="#">Retos <i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <?php
-                                    $parentesisActive = '';
-                                    if ($this->param == Funcion::parentesis) {
-                                        $parentesisActive = 'class="active"';
+                                    $conectoresActive = '';
+                                    if ($this->param == Funcion::conector) {
+                                        $conectoresActive = 'class="active"';
                                     }
                                     ?>
-                                    <li <?php echo $parentesisActive ?>><?php echo CHtml::link(Funcion::parentesis, array('logica/parentesis')); ?></li>
+                                    <li <?php echo $conectoresActive ?>><?php echo CHtml::link(Funcion::conector, array('logica/conector')); ?></li>
                                 </ul>
                             </li>
                             <?php

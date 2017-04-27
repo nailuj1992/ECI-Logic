@@ -179,10 +179,86 @@ class LogicaController extends Controller {
         ));
     }
 
-    public function actionParentesis() {
-        $this->param = Funcion::parentesis;
+    public function actionConector() {
+        $this->param = Funcion::conector;
+        $A = $B = $C = $D = $E = Operaciones::$true;
+        $formula = $valor = "";
+        $conector = new Conector();
 
-        $this->render('parentesis', array());
+        if (isset($_POST['lbl'])) {
+            $lbl = $_POST['lbl'];
+            $txt = $_POST['txt'];
+
+            $A = isset($lbl['A']) ? Operaciones::funcNot($txt['A']) : $txt['A'];
+            $B = isset($lbl['B']) ? Operaciones::funcNot($txt['B']) : $txt['B'];
+            $C = isset($lbl['C']) ? Operaciones::funcNot($txt['C']) : $txt['C'];
+            $D = isset($lbl['D']) ? Operaciones::funcNot($txt['D']) : $txt['D'];
+            $E = isset($lbl['E']) ? Operaciones::funcNot($txt['E']) : $txt['E'];
+
+            if (isset($_POST['Conector'])) {
+                $conector->attributes = $_POST['Conector'];
+
+                $formula = $_POST['txt_formula_1'] . "_" . $_POST['txt_formula_2'];
+                $expresion = str_replace("_", $conector->conector, $formula);
+                $expresion = str_replace("true", Operaciones::$true, str_replace("false", Operaciones::$false, $expresion));
+                $variables = array('A', 'B', 'C', 'D', 'E');
+                $valores = array($A, $B, $C, $D, $E);
+                $valor = $this->evaluarFormula($variables, $valores, $expresion);
+            } else {
+                $valor = "";
+            }
+        } else if (isset($_POST['btn'])) {
+            $btn = $_POST['btn'];
+            if (isset($btn['igual']) && isset($_POST['Conector'])) {
+                $conector->attributes = $_POST['Conector'];
+                $txt = $_POST['txt'];
+
+                $A = $txt['A'];
+                $B = $txt['B'];
+                $C = $txt['C'];
+                $D = $txt['D'];
+                $E = $txt['E'];
+
+                $formula = $_POST['txt_formula_1'] . "_" . $_POST['txt_formula_2'];
+                $expresion = str_replace("_", $conector->conector, $formula);
+                $expresion = str_replace("true", Operaciones::$true, str_replace("false", Operaciones::$false, $expresion));
+                $variables = array('A', 'B', 'C', 'D', 'E');
+                $valores = array($A, $B, $C, $D, $E);
+                $valor = $this->evaluarFormula($variables, $valores, $expresion);
+            } else {
+                $valor = "";
+            }
+        } else {
+            $formula = Formula::getRandom()->formula;
+            $formula = Expresion::replace($formula);
+            $operadores = array();
+            for ($i = 0; $i < strlen($formula); $i++) {
+                $char = $formula{$i};
+                switch ($char) {
+                    case Expresion::$not:
+                    case Expresion::$or:
+                    case Expresion::$and:
+                    case Expresion::$impl:
+                    case Expresion::$equiv:
+                        $operadores[] = array('index' => $i, 'operador' => $char);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            $random = array_rand($operadores);
+            $elem = $operadores[$random];
+            $index = $elem["index"];
+            $formula = substr_replace($formula, "_", $index, 1);
+            $formula = Expresion::replaceBack($formula);
+        }
+
+        $this->render('conector', array(
+            'formula' => $formula, 'valor' => $valor,
+            'conector' => $conector,
+            'A' => $A, 'B' => $B, 'C' => $C,
+            'D' => $D, 'E' => $E,
+        ));
     }
 
 }

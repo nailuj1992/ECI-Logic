@@ -9,6 +9,11 @@
  */
 class Expresion {
 
+    public static $not = "0";
+    public static $and = "1";
+    public static $or = "2";
+    public static $impl = "3";
+    public static $equiv = "4";
     public $expresion;
     public $segmentos;
     private $fila, $pila;
@@ -57,11 +62,11 @@ class Expresion {
     }
 
     public static function replace($expresion) {
-        return str_replace(Operaciones::$not, 'N', str_replace(Operaciones::$and, 'A', str_replace(Operaciones::$or, 'O', str_replace(Operaciones::$impl, 'I', str_replace(Operaciones::$equiv, 'E', $expresion)))));
+        return str_replace(Operaciones::$not, self::$not, str_replace(Operaciones::$and, self::$and, str_replace(Operaciones::$or, self::$or, str_replace(Operaciones::$impl, self::$impl, str_replace(Operaciones::$equiv, self::$equiv, $expresion)))));
     }
 
     public static function replaceBack($expresion) {
-        return str_replace('N', Operaciones::$not, str_replace('A', Operaciones::$and, str_replace('O', Operaciones::$or, str_replace('I', Operaciones::$impl, str_replace('E', Operaciones::$equiv, $expresion)))));
+        return str_replace(self::$not, Operaciones::$not, str_replace(self::$and, Operaciones::$and, str_replace(self::$or, Operaciones::$or, str_replace(self::$impl, Operaciones::$impl, str_replace(self::$equiv, Operaciones::$equiv, $expresion)))));
     }
 
     private function fragmentar() {

@@ -37,4 +37,20 @@ class Operaciones {
         return $p == $q ? self::$true : self::$false;
     }
 
+    public static function getOperadores() {
+        return array(
+            '' => '',
+            self::$not => self::$not,
+            self::$and => self::$and,
+            self::$or => self::$or,
+            self::$impl => self::$impl,
+            self::$equiv => self::$equiv,
+        );
+    }
+
+    public static function getOperador($inicial) {
+        $operador = self::getOperadores();
+        return $operador[$inicial];
+    }
+
 }

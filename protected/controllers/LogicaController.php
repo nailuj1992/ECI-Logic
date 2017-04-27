@@ -200,7 +200,7 @@ class LogicaController extends Controller {
 
                 $formula = $_POST['txt_formula_1'] . "_" . $_POST['txt_formula_2'];
                 $expresion = str_replace("_", $conector->conector, $formula);
-                $expresion = str_replace("true", Operaciones::$true, str_replace("false", Operaciones::$false, $expresion));
+                $expresion = str_replace(Formula::$true, Operaciones::$true, str_replace(Formula::$false, Operaciones::$false, $expresion));
                 $variables = array('A', 'B', 'C', 'D', 'E');
                 $valores = array($A, $B, $C, $D, $E);
                 $valor = $this->evaluarFormula($variables, $valores, $expresion);

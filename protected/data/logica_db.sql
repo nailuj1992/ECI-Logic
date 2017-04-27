@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-04-2017 a las 05:44:44
+-- Tiempo de generación: 27-04-2017 a las 08:30:33
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -67,7 +67,22 @@ INSERT INTO `formula` (`id`, `nombre`, `formula`) VALUES
 (25, '4.32 Anulador de conjunción', 'A∧false≡false'),
 (26, '4.33 Contradicción', 'A∧¬A≡false'),
 (27, '4.34 Distribución de disyunción sobre conjunción', 'A∨(B∧C)≡(A∨B)∧(A∨C)'),
-(28, '4.35 Distribución de conjunción sobre disyunción', 'A∧(B∨C)≡(A∧B)∨(A∧C)');
+(28, '4.35 Distribución de conjunción sobre disyunción', 'A∧(B∨C)≡(A∧B)∨(A∧C)'),
+(29, '4.36 a) De Morgan', '¬(A∧B)≡¬A∨¬B'),
+(30, '4.36 b) De Morgan', '¬(A∨B)≡¬A∧¬B'),
+(31, '4.37 a) Absorción', 'A∧(A∨B)≡A'),
+(32, '4.37 b) Absorción', 'A∨(A∧B)≡A'),
+(33, '4.37 c) Absorción', 'A∧(¬A∨B)≡A∧B'),
+(34, '4.37 d) Absorción', 'A∨(¬A∧B)≡A∨B'),
+(35, '4.38 Alternación de conjunción', 'A∧B≡A∧¬B≡¬A'),
+(36, '4.39 Pseudo-distribución de conjunción sobre equivalencia', 'A∧(B≡C)≡A∧B≡A∧C≡A'),
+(37, '4.40 Compresión', 'A∧(A≡B)≡A∧B'),
+(38, '4.41 Reemplazo', 'A∧(A≡B)≡B∧(A≡B)'),
+(39, '4.42 Sustitución', '(A∧B)∧(A≡C)≡(A∧B)∧(B≡C)'),
+(40, '4.43 Definición de equivalencia', 'A≡B≡(A∧B)∨(¬A∧¬B)'),
+(41, '4.45 Axioma de implicación', 'A→B≡A∨B≡B'),
+(42, '4.46 Definición alternativa de implicación', 'A→B≡A∧B≡A'),
+(43, '4.47 Definición alternativa de implicación', 'A→B≡¬A∨B');
 
 --
 -- Índices para tablas volcadas
@@ -87,7 +102,7 @@ ALTER TABLE `formula`
 -- AUTO_INCREMENT de la tabla `formula`
 --
 ALTER TABLE `formula`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -101,6 +101,10 @@
                             ?>
                             <li  <?php echo $acercaActive ?>><?php echo CHtml::link(Funcion::acerca, array('/site/page', 'view' => 'about')); ?></li>
                             <!--<li><?php echo CHtml::link('Contáctanos', array('/site/contact')); ?></li>-->
+                            <?php if (!Yii::app()->user->isGuest) : ?>
+                                <li><?php echo CHtml::link('Fórmulas', array('/formula')); ?></li>
+                                <li><?php echo CHtml::link('Cerrar sesión', array('/site/logout')); ?></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                     <div class="search">

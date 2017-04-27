@@ -10,6 +10,9 @@
  */
 class Formula extends CActiveRecord {
 
+    public static $true = "true";
+    public static $false = "false";
+
     /**
      * @return string the associated database table name
      */

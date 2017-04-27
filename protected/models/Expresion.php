@@ -28,7 +28,7 @@ class Expresion {
         $this->resolver();
     }
 
-    public function validar($formula) {
+    private function valide($pattern, $formula) {
         $parentesis = 0;
         $expresion = trim(str_replace(" ", "", $formula));
         $expresion = self::replace($expresion);
@@ -43,22 +43,42 @@ class Expresion {
             }
         }
         if ($parentesis == 0) {
-            $not = Operaciones::$not;
-            $and = Operaciones::$and;
-            $or = Operaciones::$or;
-            $impl = Operaciones::$impl;
-            $equiv = Operaciones::$equiv;
-            $parenOp = Operaciones::$parenOp;
-            $parenCl = Operaciones::$parenCl;
-            $false = Operaciones::$false;
-            $true = Operaciones::$true;
-            $pattern = "/^($not*[$parenOp]*?|([$false$true]|[$parenOp]*[$not]*?[$false$true])[$parenCl]*?($or|$and|$impl|$equiv)[$parenOp]?[$not]?[$parenOp]?)*($false|$true|[$false$true][$parenCl]*)$/";
             if (preg_match($pattern, $expresion)) {
                 return true;
             }
             return false;
         }
         return false;
+    }
+
+    public function validar($formula) {
+        $not = Operaciones::$not;
+        $and = Operaciones::$and;
+        $or = Operaciones::$or;
+        $impl = Operaciones::$impl;
+        $equiv = Operaciones::$equiv;
+        $parenOp = Operaciones::$parenOp;
+        $parenCl = Operaciones::$parenCl;
+        $false = Operaciones::$false;
+        $true = Operaciones::$true;
+        $pattern = "/^($not*[$parenOp]*?|([$false$true]|[$parenOp]*[$not]*?[$false$true])[$parenCl]*?($or|$and|$impl|$equiv)[$parenOp]?[$not]?[$parenOp]?)*($false|$true|[$false$true][$parenCl]*)$/";
+        return $this->valide($pattern, $formula);
+    }
+
+    public function validarConSimbolos($formula) {
+        $not = Operaciones::$not;
+        $and = Operaciones::$and;
+        $or = Operaciones::$or;
+        $impl = Operaciones::$impl;
+        $equiv = Operaciones::$equiv;
+        $parenOp = Operaciones::$parenOp;
+        $parenCl = Operaciones::$parenCl;
+        $false = Operaciones::$false;
+        $true = Operaciones::$true;
+        $letras = "ABCDEpqrstuvxyz";
+        $letra = "A|B|C|D|E|p|q|r|s|t|u|v|x|y|z";
+        $pattern = "/^($not*[$parenOp]*?|([$false$true$letras]|[$parenOp]*[$not]*?[$false$true$letras])[$parenCl]*?($or|$and|$impl|$equiv)[$parenOp]?[$not]?[$parenOp]?)*($false|$true|$letra|[$false$true$letras][$parenCl]*)$/";
+        return $this->valide($pattern, $formula);
     }
 
     public static function replace($expresion) {

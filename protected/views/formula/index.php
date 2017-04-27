@@ -1,20 +1,23 @@
 <?php
 /* @var $this FormulaController */
-/* @var $dataProvider CActiveDataProvider */
-
-$this->breadcrumbs=array(
-	'Formulas',
-);
-
-$this->menu=array(
-	array('label'=>'Create Formula', 'url'=>array('create')),
-	array('label'=>'Manage Formula', 'url'=>array('admin')),
-);
+/* @var $model Formula */
 ?>
 
 <h1>Formulas</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?php
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'formula-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        'id',
+        'nombre',
+        'formula',
+        array(
+            'class' => 'CButtonColumn',
+        ),
+    ),
+));
+
+echo CHtml::link('Crear Fórmula', array('create'), array('class' => 'btn btn-info'));

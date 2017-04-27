@@ -8,6 +8,6 @@
 class LogicaException extends CException {
 
     public static $emptyList = "Empty list";
-    public static $invalidForm = "Formula invalida";
+    public static $invalidForm = "Formula inválida";
 
 }

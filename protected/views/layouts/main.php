@@ -31,94 +31,7 @@
     </head>
 
     <body>
-        <header id="header">
-            <div class="navbar navbar-inverse" role="banner">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <?php echo CHtml::link('<h1><img src="' . Yii::app()->request->baseUrl . '/images/logo.png" alt="logo"></h1>', array('/'), array('class' => 'navbar-brand')); ?>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <?php
-                            $inicioActive = '';
-                            if (!$this->param) {
-                                $inicioActive = 'class="active"';
-                            }
-                            ?>
-                            <li <?php echo $inicioActive ?>><?php echo CHtml::link('Inicio', array('/')); ?></li>
-                            <?php
-                            $actividadesActive = '';
-                            if ($this->param == Funcion::tablas || $this->param == Funcion::calculadora) {
-                                $actividadesActive = 'active';
-                            }
-                            ?>
-                            <li class="dropdown <?php echo $actividadesActive ?>"><a href="#">Actividades <i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <?php
-                                    $tablasActive = '';
-                                    if ($this->param == Funcion::tablas) {
-                                        $tablasActive = 'class="active"';
-                                    }
-                                    ?>
-                                    <li <?php echo $tablasActive ?>><?php echo CHtml::link(Funcion::tablas, array('logica/tablas')); ?></li>
-                                    <?php
-                                    $calculadoraActive = '';
-                                    if ($this->param == Funcion::calculadora) {
-                                        $calculadoraActive = 'class="active"';
-                                    }
-                                    ?>
-                                    <li <?php echo $calculadoraActive ?>><?php echo CHtml::link(Funcion::calculadora, array('logica/calculadora')); ?></li>
-                                </ul>
-                            </li>
-                            <?php
-                            $retosActive = '';
-                            if ($this->param == Funcion::conector) {
-                                $retosActive = 'active';
-                            }
-                            ?>
-                            <li class="dropdown <?php echo $retosActive ?>"><a href="#">Retos <i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <?php
-                                    $conectoresActive = '';
-                                    if ($this->param == Funcion::conector) {
-                                        $conectoresActive = 'class="active"';
-                                    }
-                                    ?>
-                                    <li <?php echo $conectoresActive ?>><?php echo CHtml::link(Funcion::conector, array('logica/conector')); ?></li>
-                                </ul>
-                            </li>
-                            <?php
-                            $acercaActive = '';
-                            if ($this->param == Funcion::acerca) {
-                                $acercaActive = 'class="active"';
-                            }
-                            ?>
-                            <li  <?php echo $acercaActive ?>><?php echo CHtml::link(Funcion::acerca, array('/site/page', 'view' => 'about')); ?></li>
-                            <!--<li><?php echo CHtml::link('Contáctanos', array('/site/contact')); ?></li>-->
-                            <?php if (!Yii::app()->user->isGuest) : ?>
-                                <li><?php echo CHtml::link('Fórmulas', array('/formula')); ?></li>
-                                <li><?php echo CHtml::link('Cerrar sesión', array('/site/logout')); ?></li>
-                            <?php endif; ?>
-                        </ul>
-                    </div>
-                    <div class="search">
-                        <form role="form">
-                            <i class="fa fa-search"></i>
-                            <div class="field-toggle">
-                                <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!--/#header-->
+        <?php $this->renderPartial("//layouts/header"); ?>
 
         <div class="container" id="page">
             <?php if (isset($this->breadcrumbs)): ?>
@@ -150,23 +63,7 @@
             <div class="clear"></div>
         </div>
 
-        <footer id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 text-center bottom-separator">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/home/under.png" class="img-responsive inline" alt="">
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="copyright-text text-center">
-                            <p>Copyright &copy; <?php echo date('Y'); ?>.</p>
-                            <p>Escuela Colombiana de Ingeniería. All Rights Reserved.</p>
-                            <p>Crafted by <a target="_blank" href="http://designscrazed.org/">Allie</a>. <?php echo Yii::powered(); ?></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!--/#footer-->
+        <?php $this->renderPartial("//layouts/footer"); ?>
 
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>

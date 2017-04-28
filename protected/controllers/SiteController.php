@@ -2,8 +2,9 @@
 
 class SiteController extends Controller {
 
-    public static $form_required = '<p class="note">Los campos con <span class="required">*</span> son requeridos.</p>';
-    public static $espacio_vacio = ' ';
+    const formRequired = '<p class="note">Los campos con <span class="required">*</span> son requeridos.</p>';
+    const espacioVacio = ' ';
+    const historyBack = "javascript:history.back();";
 
     /**
      * Declares class-based actions.

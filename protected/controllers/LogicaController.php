@@ -46,8 +46,6 @@ class LogicaController extends Controller {
     }
 
     public function actionTablas() {
-        $this->param = Funcion::tablas;
-
         $p = Operaciones::$true;
         $q = Operaciones::$true;
         $op = Operaciones::$not;
@@ -100,8 +98,6 @@ class LogicaController extends Controller {
     }
 
     public function actionCalculadora() {
-        $this->param = Funcion::calculadora;
-
         $p = $q = $r = $s = $t = $u = $v = $x = $y = $z = Operaciones::$true;
         $formula = $valor = "";
 
@@ -180,7 +176,6 @@ class LogicaController extends Controller {
     }
 
     public function actionConector() {
-        $this->param = Funcion::conector;
         $A = $B = $C = $D = $E = Operaciones::$true;
         $formula = $valor = "";
         $conector = new Conector();

@@ -17,7 +17,7 @@
     ));
     ?>
 
-    <?php echo SiteController::$form_required; ?>
+    <?php echo SiteController::formRequired; ?>
 
     <div class="form-group col-sm-12">
         <?php echo $form->labelEx($model, 'nombre'); ?>
@@ -56,8 +56,8 @@
     <div class="form-group col-sm-12">
         <?php
         echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar', array('class' => 'btn btn-success'));
-        echo SiteController::$espacio_vacio;
-        echo CHtml::link('Volver', array('index'), array('class' => 'btn btn-danger'));
+        echo SiteController::espacioVacio;
+        echo CHtml::link('Volver', SiteController::historyBack, array('class' => 'btn btn-danger'));
         ?>
     </div>
 

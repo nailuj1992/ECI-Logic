@@ -1,7 +1,5 @@
 <?php
 /* @var $this SiteController */
-
-$this->param = Funcion::acerca;
 ?>
 <h1>Acerca de</h1>
 

@@ -3,7 +3,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form-group">
+<div id="tablas-verdad" class="col-sm-12 col-sm-offset-0">
 
     <?php
     $form = $this->beginWidget('CActiveForm', array(
@@ -12,7 +12,7 @@
     ));
     ?>
 
-    <table cellSpacing="3" cellPadding="1" border="0" class="col-sm-6 col-sm-offset-3">
+    <table cellSpacing="3" cellPadding="1" border="0" class="form-group col-sm-6 col-sm-offset-3">
         <caption align="top"><h1><b><?php echo Funcion::tablas; ?></b></h1></caption>
         <tr>
             <td>

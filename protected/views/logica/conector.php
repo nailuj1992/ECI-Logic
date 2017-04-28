@@ -4,7 +4,7 @@
 /* @var $conector Conector */
 ?>
 
-<div class="form-group">
+<div id="conectores" class="col-sm-12 col-sm-offset-0">
 
     <?php
     $form = $this->beginWidget('CActiveForm', array(
@@ -14,7 +14,7 @@
     ?>
 
     <?php $fragmentos = explode("_", $formula); ?>
-    <table cellSpacing="3" cellPadding="1" border="0" class="col-sm-6 col-sm-offset-3">
+    <table cellSpacing="3" cellPadding="1" border="0" class="form-group col-sm-6 col-sm-offset-3">
         <caption align="top">
             <h1><b><?php echo Funcion::conector; ?></b></h1>
             <p>Selecciona el conector que haga que la fórmula sea siempre verdadera.</p>

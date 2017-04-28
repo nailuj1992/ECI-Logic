@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <?php echo CHtml::link('<h1><img src="' . Yii::app()->request->baseUrl . '/images/logo_logica.png" alt="logo"></h1>', array('/'), array('class' => 'navbar-brand')); ?>
+                <?php echo CHtml::link('<h1><img src="' . Yii::app()->request->baseUrl . '/images/varios/logo.png" alt="logo"></h1>', array('/'), array('class' => 'navbar-brand')); ?>
             </div>
             <div class="collapse navbar-collapse">
                 <?php
@@ -20,16 +20,19 @@
                     'items' => array(
                         array('label' => 'Inicio', 'url' => array('/site/index')),
                         array(
-                            'label' => 'Actividades <i class="fa fa-angle-down"></i>', 'url' => '',
+                            'label' => 'Actividades <i class="fa fa-angle-down"></i>', 'url' => '#',
                             'items' => array(
                                 array('label' => Funcion::tablas, 'url' => array('/logica/tablas')),
                                 array('label' => Funcion::calculadora, 'url' => array('/logica/calculadora')),
                             ),
+                            'itemOptions' => array('class' => 'dropdown'),
                         ),
-                        array('label' => 'Retos <i class="fa fa-angle-down"></i>', 'url' => '',
+                        array(
+                            'label' => 'Retos <i class="fa fa-angle-down"></i>', 'url' => '#',
                             'items' => array(
                                 array('label' => Funcion::conector, 'url' => array('/logica/conector')),
                             ),
+                            'itemOptions' => array('class' => 'dropdown'),
                         ),
                         array('label' => 'Acerca de', 'url' => array('/site/page', 'view' => 'about')),
 //                        array('label' => 'Contáctanos', 'url' => array('/site/contact')),

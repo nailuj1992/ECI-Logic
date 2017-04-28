@@ -3,7 +3,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form-group">
+<div id="calculadora-logica" class="col-sm-12 col-sm-offset-0">
 
     <?php
     $form = $this->beginWidget('CActiveForm', array(
@@ -15,7 +15,7 @@
     <!-- http://javascripts.astalaweb.com/Calculadoras/1_Calculadoras.asp -->
     <!-- http://javascripts.astalaweb.com/Calculadoras/Calculadora%20cient%C3%ADfica/Calculadora%20cient%C3%ADfica.htm -->
     <!-- view-source:http://javascripts.astalaweb.com/Calculadoras/Calculadora%20cient%C3%ADfica/Calculadora%20cient%C3%ADfica.htm -->
-    <table cellSpacing="3" cellPadding="1" border="0" class="col-sm-6 col-sm-offset-3">
+    <table cellSpacing="3" cellPadding="1" border="0" class="form-group col-sm-6 col-sm-offset-3">
         <caption align="top"><h1><b><?php echo Funcion::calculadora; ?></b></h1></caption>
         <tr>
             <td colspan="4">

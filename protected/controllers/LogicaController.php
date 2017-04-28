@@ -176,7 +176,7 @@ class LogicaController extends Controller {
     }
 
     public function actionConector() {
-        $A = $B = $C = $D = $E = Operaciones::$true;
+        $A = $B = $C = $D = $E = Operaciones::$false;
         $formula = $valor = "";
         $conector = new Conector();
 

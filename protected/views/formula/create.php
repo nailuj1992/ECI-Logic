@@ -4,7 +4,7 @@
 ?>
 
 <div class="col-sm-6 col-sm-offset-3">
-    <h1>Crear Fórmula</h1>
+    <h1><b>Crear Fórmula</b></h1>
 </div>
 
 <?php

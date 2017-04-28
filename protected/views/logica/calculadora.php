@@ -16,7 +16,7 @@
     <!-- http://javascripts.astalaweb.com/Calculadoras/Calculadora%20cient%C3%ADfica/Calculadora%20cient%C3%ADfica.htm -->
     <!-- view-source:http://javascripts.astalaweb.com/Calculadoras/Calculadora%20cient%C3%ADfica/Calculadora%20cient%C3%ADfica.htm -->
     <table cellSpacing="3" cellPadding="1" border="0" class="col-sm-6 col-sm-offset-3">
-        <caption align="top"><h1><?php echo Funcion::calculadora; ?></h1></caption>
+        <caption align="top"><h1><b><?php echo Funcion::calculadora; ?></b></h1></caption>
         <tr>
             <td colspan="4">
                 <input type="text" name="txt_formula" id="txt_formula" value="<?php echo $formula; ?>" readonly class="form-control">

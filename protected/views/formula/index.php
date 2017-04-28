@@ -3,7 +3,7 @@
 /* @var $model Formula */
 ?>
 
-<h1>Formulas</h1>
+<h1><b>Formulas</b></h1>
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(

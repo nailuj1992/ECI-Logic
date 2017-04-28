@@ -14,10 +14,10 @@ $this->pageTitle = Yii::app()->name . ' - Error';
                         <div class="bg-404">
                             <div class="error-image">
                                 <img class="img-responsive" src="<?php echo Yii::app()->request->baseUrl; ?>/images/404.png" alt="">
-                                <!--<h1><?php echo $code; ?></h1>-->
+                                <!--<h1><b><?php echo $code; ?></b></h1>-->
                             </div>
                         </div>
-                        <h2>HA OCURRIDO UN ERROR</h2>
+                        <h2><b>HA OCURRIDO UN ERROR</b></h2>
                         <p><?php echo CHtml::encode($message); ?></p>
                         <a href="javascript:history.back()" class="btn btn-error">Ir a la página anterior</a>
                     </div>

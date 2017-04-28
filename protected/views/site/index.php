@@ -8,7 +8,7 @@ $this->pageTitle = Yii::app()->name;
         <div class="row">
             <div class="main-slider">
                 <div class="slide-text">
-                    <h1>Bienvenido a <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+                    <h1><b>Bienvenido a <i><?php echo CHtml::encode(Yii::app()->name); ?></i></b></h1>
                     <p>Aquí podrás aprender acerca de la lógica proposicional en forma didáctica.</p>
                 </div>
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/home/slider/hill.png" class="slider-hill" alt="slider image">

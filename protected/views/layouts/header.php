@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <?php echo CHtml::link('<h1><img src="' . Yii::app()->request->baseUrl . '/images/logo.png" alt="logo"></h1>', array('/'), array('class' => 'navbar-brand')); ?>
+                <?php echo CHtml::link('<h1><img src="' . Yii::app()->request->baseUrl . '/images/logo_logica.png" alt="logo"></h1>', array('/'), array('class' => 'navbar-brand')); ?>
             </div>
             <div class="collapse navbar-collapse">
                 <?php

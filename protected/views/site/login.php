@@ -5,7 +5,7 @@
 ?>
 
 <div class="col-sm-6 col-sm-offset-3">
-    <h1>Login</h1>
+    <h1><b>Login</b></h1>
 
     <p>Please fill out the following form with your login credentials:</p>
 </div>

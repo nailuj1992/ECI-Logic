@@ -4,7 +4,7 @@
 ?>
 
 <div class="col-sm-6 col-sm-offset-3">
-    <h1>Modificar Fórmula #<?php echo $model->id; ?></h1>
+    <h1><b>Modificar Fórmula #<?php echo $model->id; ?></b></h1>
 </div>
 
 <?php

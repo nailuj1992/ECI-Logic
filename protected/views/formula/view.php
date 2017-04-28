@@ -3,7 +3,7 @@
 /* @var $model Formula */
 ?>
 
-<h1>Ver Fórmula #<?php echo $model->id; ?></h1>
+<h1><b>Ver Fórmula #<?php echo $model->id; ?></b></h1>
 
 <?php
 $this->widget('zii.widgets.CDetailView', array(

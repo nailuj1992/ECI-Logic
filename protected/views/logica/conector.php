@@ -16,8 +16,8 @@
     <?php $fragmentos = explode("_", $formula); ?>
     <table cellSpacing="3" cellPadding="1" border="0" class="col-sm-6 col-sm-offset-3">
         <caption align="top">
-            <h1><?php echo Funcion::conector; ?></h1>
-            <p>Seleccione el conector que haga que la fórmula sea siempre verdadera.</p>
+            <h1><b><?php echo Funcion::conector; ?></b></h1>
+            <p>Selecciona el conector que haga que la fórmula sea siempre verdadera.</p>
         </caption>
         <tr>
             <td>

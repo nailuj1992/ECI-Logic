@@ -13,7 +13,7 @@
     ?>
 
     <table cellSpacing="3" cellPadding="1" border="0" class="col-sm-6 col-sm-offset-3">
-        <caption align="top"><h1><?php echo Funcion::tablas; ?></h1></caption>
+        <caption align="top"><h1><b><?php echo Funcion::tablas; ?></b></h1></caption>
         <tr>
             <td>
                 <input type="submit" name="lbl_p" value="p" class="btn btn-lg btn-default">

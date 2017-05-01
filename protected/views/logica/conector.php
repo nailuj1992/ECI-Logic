@@ -24,7 +24,18 @@
                 <input type="text" name="txt_formula_1" id="txt_formula_1" value="<?php echo $fragmentos[0]; ?>" readonly class="form-control">
             </td>
             <td>
-                <?php echo $form->dropDownList($conector, 'conector', Operaciones::getOperadores(), array('class' => 'form-control', 'required' => 'required', 'onchange' => 'resetValue()')); ?>
+                <?php $operadores = Operaciones::getOperadores(); ?>
+                <select name="conector" class="form-control" required onchange="resetValue()">
+                    <?php
+                    foreach ($operadores as $key => $val) {
+                        $selected = "";
+                        if ($conector == $val) {
+                            $selected = "selected";
+                        }
+                        echo '<option value="' . $key . '" ' . $selected . '>' . $val . '</option>';
+                    }
+                    ?>
+                </select>
             </td>
             <td>
                 <input type="text" name="txt_formula_2" id="txt_formula_2" value="<?php echo $fragmentos[1]; ?>" readonly class="form-control">

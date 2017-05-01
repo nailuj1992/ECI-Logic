@@ -178,7 +178,7 @@ class LogicaController extends Controller {
     public function actionConector() {
         $A = $B = $C = $D = $E = Operaciones::$false;
         $formula = $valor = "";
-        $conector = new Conector();
+        $conector = "";
 
         if (isset($_POST['lbl'])) {
             $lbl = $_POST['lbl'];
@@ -190,11 +190,11 @@ class LogicaController extends Controller {
             $D = isset($lbl['D']) ? Operaciones::funcNot($txt['D']) : $txt['D'];
             $E = isset($lbl['E']) ? Operaciones::funcNot($txt['E']) : $txt['E'];
 
-            if (isset($_POST['Conector'])) {
-                $conector->attributes = $_POST['Conector'];
+            if (isset($_POST['conector'])) {
+                $conector = $_POST['conector'];
 
                 $formula = $_POST['txt_formula_1'] . "_" . $_POST['txt_formula_2'];
-                $expresion = str_replace("_", $conector->conector, $formula);
+                $expresion = str_replace("_", $conector, $formula);
                 $expresion = str_replace(Formula::$true, Operaciones::$true, str_replace(Formula::$false, Operaciones::$false, $expresion));
                 $variables = array('A', 'B', 'C', 'D', 'E');
                 $valores = array($A, $B, $C, $D, $E);
@@ -204,8 +204,8 @@ class LogicaController extends Controller {
             }
         } else if (isset($_POST['btn'])) {
             $btn = $_POST['btn'];
-            if (isset($btn['igual']) && isset($_POST['Conector'])) {
-                $conector->attributes = $_POST['Conector'];
+            if (isset($btn['igual']) && isset($_POST['conector'])) {
+                $conector = $_POST['conector'];
                 $txt = $_POST['txt'];
 
                 $A = $txt['A'];
@@ -215,8 +215,8 @@ class LogicaController extends Controller {
                 $E = $txt['E'];
 
                 $formula = $_POST['txt_formula_1'] . "_" . $_POST['txt_formula_2'];
-                $expresion = str_replace("_", $conector->conector, $formula);
-                $expresion = str_replace("true", Operaciones::$true, str_replace("false", Operaciones::$false, $expresion));
+                $expresion = str_replace("_", $conector, $formula);
+                $expresion = str_replace(Formula::$true, Operaciones::$true, str_replace(Formula::$false, Operaciones::$false, $expresion));
                 $variables = array('A', 'B', 'C', 'D', 'E');
                 $valores = array($A, $B, $C, $D, $E);
                 $valor = $this->evaluarFormula($variables, $valores, $expresion);
@@ -254,6 +254,10 @@ class LogicaController extends Controller {
             'A' => $A, 'B' => $B, 'C' => $C,
             'D' => $D, 'E' => $E,
         ));
+    }
+    
+    public function accionDeduccion() {
+        ;
     }
 
 }

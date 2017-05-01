@@ -3,15 +3,14 @@
 /**
  * Description of Expresion
  * https://github.com/felipebz/calculadora-logica
- * https://es.wikipedia.org/wiki/Notaci%C3%B3n_polaca_inversa
  *
  * @author Julian Gonzalez Prieto (Avuuna, la Luz del Alba).
  */
 class Expresion {
 
     public static $not = "0";
-    public static $and = "1";
-    public static $or = "2";
+    public static $or = "1";
+    public static $and = "2";
     public static $impl = "3";
     public static $equiv = "4";
     public $expresion;
@@ -96,26 +95,35 @@ class Expresion {
         return explode(" ", $expresion)[0];
     }
 
-    private function esMasImportante($valor, $topePila) {
-        $precedencia = Operaciones::$not . Operaciones::$or . Operaciones::$and . Operaciones::$impl . Operaciones::$equiv;
-        $precedencia = self::replace($precedencia);
-        $tp = self::replace($topePila);
-        $val = self::replace($valor);
-        if ($tp == Operaciones::$parenOp) {
-            return false;
-        }
-        if (strpos($precedencia, $tp) === false) {
-            return false;
-        }
-        if (strpos($precedencia, $val) === false) {
-            return false;
-        }
-        if (strpos($precedencia, $tp) >= strpos($precedencia, $val)) {
-            return false;
-        }
-        return true;
+    private function esMasImportante($cima, $elem) {
+        return $this->precedencia($cima) >= $this->precedencia($elem);
     }
 
+    /**
+     * http://www.javamexico.org/foros/java_micro_edition/calculadora_usando_notacion_polaca_inversa
+     * @param type $operador
+     * @return int
+     */
+    private function precedencia($operador) {
+        switch ($operador) {
+            case self::$not:
+                return 3;
+            case self::$or:
+            case self::$and:
+                return 2;
+            case self::$impl:
+                return 1;
+            case self::$equiv:
+                return 0;
+            default:
+                return -1;
+        }
+    }
+
+    /**
+     * https://es.wikipedia.org/wiki/Notaci%C3%B3n_polaca_inversa
+     * https://www.infor.uva.es/~cvaca/asigs/AlgInfPost.htm
+     */
     private function separar() {
         $fila = new Fila();
         $pila = new Pila();
@@ -123,7 +131,7 @@ class Expresion {
             $elem = $this->segmentos{$i};
             if (preg_match("[" . Operaciones::$false . "|" . Operaciones::$true . "]", $elem)) {
                 $fila->add($elem);
-            } else if ($elem == Operaciones::$not || $elem == Operaciones::$parenOp) {
+            } else if ($elem == Operaciones::$parenOp) {
                 $pila->add($elem);
             } else if ($elem == Operaciones::$parenCl) {
                 while ($pila->getEnd() != Operaciones::$parenOp) {
@@ -131,10 +139,8 @@ class Expresion {
                 }
                 $pila->remove();
             } else {
-                if (!$pila->isEmpty()) {
-                    if ($this->esMasImportante($elem, (string) $pila->getEnd())) {
-                        $fila->add($pila->remove());
-                    }
+                while (!$pila->isEmpty() && $this->esMasImportante((string) $pila->getEnd(), $elem)) {
+                    $fila->add($pila->remove());
                 }
                 $pila->add($elem);
             }

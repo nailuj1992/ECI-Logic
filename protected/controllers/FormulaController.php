@@ -60,7 +60,7 @@ class FormulaController extends Controller {
 
             $expresion = new Expresion;
             if ($model->formula && $expresion->validarConSimbolos($model->formula)) {
-                $model->formula = str_replace(Operaciones::$true, "true", str_replace(Operaciones::$false, "false", $model->formula));
+                $model->formula = str_replace(Operaciones::$true, Formula::$true, str_replace(Operaciones::$false, Formula::$false, $model->formula));
                 if ($model->save()) {
                     $this->redirect(array('view', 'id' => $model->id));
                 }

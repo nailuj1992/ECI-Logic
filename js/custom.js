@@ -51,6 +51,11 @@ function focusElem(elem) {
     lastFocus = elem;
 }
 
+function deleteRow(r, tableId) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById(tableId).deleteRow(i);
+}
+
 function addFormulaDeduce(id) {
     if (lastFocus != null) {
         add(id, lastFocus.id);

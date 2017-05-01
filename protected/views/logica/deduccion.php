@@ -51,13 +51,16 @@
             <tr>
                 <td>
                     <table id="premisas" cellSpacing="3" cellPadding="1" border="0" class="form-group col-sm-10 col-sm-offset-1">
-                        <?php
-                        foreach ($premisas as $elem) {
-                            if ($elem != "") {
-                                echo '<tr><td><input type="text" name="premisa[]" value="' . $elem . '" readonly class="form-control"></td></tr>';
+                        <tr>
+                            <?php
+                            foreach ($premisas as $elem) {
+                                if ($elem != "") {
+                                    echo '<td><input type="text" name="premisa[]" value="' . $elem . '" readonly class="form-control"></td>';
+                                    echo '<td><input type="button" value="-" class="btn btn-danger" onclick="deleteRow(this, \'premisas\')"></td>';
+                                }
                             }
-                        }
-                        ?>
+                            ?>
+                        </tr>
                     </table>
                 </td>
                 <td>

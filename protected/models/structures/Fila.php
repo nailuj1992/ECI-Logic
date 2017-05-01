@@ -29,10 +29,6 @@ class Fila implements Struct {
         return $this->fila->getEnd();
     }
 
-    public function getBegin() {
-        return $this->fila->getBegin();
-    }
-
     public function __toString() {
         return (string) $this->fila;
     }

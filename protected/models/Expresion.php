@@ -30,9 +30,6 @@ class Expresion {
     private function valide($pattern, $formula) {
         $parentesis = 0;
         $expresion = trim(str_replace(" ", "", $formula));
-        $expresion = self::replace($expresion);
-        $expresion = strtoupper($expresion);
-        $expresion = self::replaceBack($expresion);
         for ($i = 0; $i < strlen($expresion); $i++) {
             if ($expresion{$i} == Operaciones::$parenOp) {
                 $parentesis++;
@@ -91,7 +88,7 @@ class Expresion {
     private function fragmentar() {
         $expresion = str_replace("", " ", str_replace(" ", "", $this->expresion));
         $expresion = self::replace($expresion);
-        $expresion = strtoupper(trim($expresion));
+        $expresion = trim($expresion);
         return explode(" ", $expresion)[0];
     }
 

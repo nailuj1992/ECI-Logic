@@ -10,6 +10,7 @@ class Funcion {
     const tablas = "Tablas de Verdad";
     const calculadora = "Calculadora Lógica";
     const conector = "Conectores";
+    const deduccion = "Deducción Lógica";
     const acerca = "Acerca de";
 
     public static function setFlash($type, $title, $message) {

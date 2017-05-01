@@ -1,17 +1,7 @@
-function addFormula(id) {
-    add(id, 'txt_formula');
-    document.getElementById('txt_valor').value = "";
-}
-
 function add(id, elem) {
     var formula = document.getElementById(elem).value;
     formula += id.innerHTML;
     document.getElementById(elem).value = formula;
-}
-
-function delFormula() {
-    del('txt_formula');
-    document.getElementById('txt_valor').value = "";
 }
 
 function del(elem) {
@@ -20,17 +10,27 @@ function del(elem) {
     document.getElementById(elem).value = formula;
 }
 
-function acFormula() {
-    ac('txt_formula');
-    document.getElementById('txt_valor').value = "";
-}
-
 function ac(elem) {
     document.getElementById(elem).value = "";
 }
 
 function resetValue() {
     document.getElementById('txt_valor').value = "";
+}
+
+function addFormula(id) {
+    add(id, 'txt_formula');
+    resetValue();
+}
+
+function delFormula() {
+    del('txt_formula');
+    resetValue();
+}
+
+function acFormula() {
+    ac('txt_formula');
+    resetValue();
 }
 
 function addFormulaCreate(id) {
@@ -43,4 +43,28 @@ function delFormulaCreate() {
 
 function acFormulaCreate() {
     ac('Formula_formula');
+}
+
+var lastFocus = null;
+
+function focusElem(elem) {
+    lastFocus = elem;
+}
+
+function addFormulaDeduce(id) {
+    if (lastFocus != null) {
+        add(id, lastFocus.id);
+    }
+}
+
+function delFormulaDeduce() {
+    if (lastFocus != null) {
+        del(lastFocus.id);
+    }
+}
+
+function acFormulaDeduce() {
+    if (lastFocus != null) {
+        ac(lastFocus.id);
+    }
 }

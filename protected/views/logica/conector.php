@@ -1,7 +1,6 @@
 <?php
 /* @var $this LogicaController */
 /* @var $form CActiveForm */
-/* @var $conector Conector */
 ?>
 
 <div id="conectores" class="col-sm-12 col-sm-offset-0">

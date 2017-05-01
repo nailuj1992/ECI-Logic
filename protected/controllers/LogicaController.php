@@ -45,6 +45,16 @@ class LogicaController extends Controller {
         }
     }
 
+    private function validar($formula) {
+        $expresion = new Expresion($formula);
+        if ($expresion->validarConSimbolos($formula)) {
+            return true;
+        } else {
+            Funcion::setFlash('danger', 'Error', LogicaException::$invalidForm);
+            return false;
+        }
+    }
+
     public function actionTablas() {
         $p = Operaciones::$true;
         $q = Operaciones::$true;
@@ -255,9 +265,46 @@ class LogicaController extends Controller {
             'D' => $D, 'E' => $E,
         ));
     }
-    
-    public function accionDeduccion() {
-        ;
+
+    public function actionDeduccion() {
+        $enunciado = "";
+        $p = $q = $r = $s = $t = $u = $v = $x = $y = $z = "";
+        $premisas = array();
+        $conclusion = "";
+        $premisaError = $conclusionError = "";
+
+        if (isset($_POST['premisa'])) {
+            $premisas = $_POST['premisa'];
+        }
+        if (isset($_POST['txt_premisa'])) {
+            $premisa = $_POST['txt_premisa'];
+
+            if ($premisa != "" && $this->validar($premisa)) {
+                $premisas[] = $premisa;
+                $premisaError = "";
+            } else {
+                $premisaError = $premisa;
+            }
+        }
+        if (isset($_POST['txt_conclusion'])) {
+            $concl = $_POST['txt_conclusion'];
+
+            if ($concl != "" && $this->validar($concl)) {
+                $conclusion = $concl;
+                $conclusionError = "";
+            } else {
+                $conclusionError = $concl;
+            }
+        }
+
+        $this->render('deduccion', array(
+            'enunciado' => $enunciado,
+            'p' => $p, 'q' => $q, 'r' => $r, 's' => $s,
+            't' => $t, 'u' => $u, 'v' => $v,
+            'x' => $x, 'y' => $y, 'z' => $z,
+            'premisas' => $premisas, 'premisaError' => $premisaError,
+            'conclusion' => $conclusion, 'conclusionError' => $conclusionError,
+        ));
     }
 
 }

@@ -24,7 +24,7 @@
                             'items' => array(
                                 array('label' => Funcion::tablas, 'url' => array('/logica/tablas')),
                                 array('label' => Funcion::calculadora, 'url' => array('/logica/calculadora')),
-                                array('label' => Funcion::deduccion, 'url' => array('/logica/deduccion')),
+//                                array('label' => Funcion::deduccion, 'url' => array('/logica/deduccion')),
                             ),
                             'itemOptions' => array('class' => 'dropdown'),
                         ),

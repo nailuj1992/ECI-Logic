@@ -1,7 +1,13 @@
 <?php
 
 /**
- * Description of Operaciones
+ * Operadores en PHP:
+ * [ ¬ ] = [ ! ].
+ * [ ∨ ] = [ || ].
+ * [ ∧ ] = [ && ].
+ * [ ≡ ] = [ = ].
+ * [ → ] = [ <= ].
+ * https://softwareengineering.stackexchange.com/questions/184089/why-dont-languages-include-implication-as-a-logical-operator
  *
  * @author Julian Gonzalez Prieto (Avuuna, la Luz del Alba).
  */

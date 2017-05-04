@@ -64,8 +64,9 @@ class FormulaController extends Controller {
                 if ($model->save()) {
                     $this->redirect(array('view', 'id' => $model->id));
                 }
+            } else {
+                $model->addError('formula', LogicaException::invalidForm);
             }
-            $model->addError('formula', LogicaException::invalidForm);
         }
 
         $this->render('create', array(
@@ -94,8 +95,9 @@ class FormulaController extends Controller {
                 if ($model->save()) {
                     $this->redirect(array('view', 'id' => $model->id));
                 }
+            } else {
+                $model->addError('formula', LogicaException::invalidForm);
             }
-            $model->addError('formula', LogicaException::invalidForm);
         }
 
         $this->render('update', array(

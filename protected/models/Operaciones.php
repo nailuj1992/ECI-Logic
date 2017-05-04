@@ -1,12 +1,16 @@
 <?php
 
 /**
- * Operadores en PHP:
- * [ ¬ ] = [ ! ].
- * [ ∨ ] = [ || ].
- * [ ∧ ] = [ && ].
- * [ ≡ ] = [ = ].
- * [ → ] = [ <= ].
+ * Clase que maneja las operaciones logicas.
+ * 
+ * <b>Nota:</b> Operadores en PHP:
+ * <li>[ ¬ ] = [ ! ].</li>
+ * <li>[ ∨ ] = [ || ].</li>
+ * <li>[ ∧ ] = [ && ].</li>
+ * <li>[ ≡ ] = [ = ].</li>
+ * <li>[ → ] = [ <= ].</li>
+ * 
+ * Links de ayuda:
  * https://softwareengineering.stackexchange.com/questions/184089/why-dont-languages-include-implication-as-a-logical-operator
  *
  * @author Julian Gonzalez Prieto (Avuuna, la Luz del Alba).

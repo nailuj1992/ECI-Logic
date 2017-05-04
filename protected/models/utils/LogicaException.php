@@ -7,7 +7,8 @@
  */
 class LogicaException extends CException {
 
-    public static $emptyList = "Empty list";
-    public static $invalidForm = "Formula inválida";
+    const emptyList = "Lista vacía";
+    const invalidForm = "Formula inválida";
+    const nullStack = "Pila nula";
 
 }

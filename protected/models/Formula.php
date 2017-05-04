@@ -93,6 +93,11 @@ class Formula extends CActiveRecord {
         return parent::model($className);
     }
 
+    /**
+     * Obtiene una formula aleatoria de la BD.
+     * 
+     * @return \Formula Objeto aleatorio.
+     */
     public static function getRandom() {
         $max = self::model()->count() - 1;
         $offset = rand(0, $max);

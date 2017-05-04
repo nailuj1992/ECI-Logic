@@ -65,7 +65,7 @@ class FormulaController extends Controller {
                     $this->redirect(array('view', 'id' => $model->id));
                 }
             }
-            $model->addError('formula', LogicaException::$invalidForm);
+            $model->addError('formula', LogicaException::invalidForm);
         }
 
         $this->render('create', array(
@@ -95,7 +95,7 @@ class FormulaController extends Controller {
                     $this->redirect(array('view', 'id' => $model->id));
                 }
             }
-            $model->addError('formula', LogicaException::$invalidForm);
+            $model->addError('formula', LogicaException::invalidForm);
         }
 
         $this->render('update', array(
@@ -141,8 +141,9 @@ class FormulaController extends Controller {
      */
     public function loadModel($id) {
         $model = Formula::model()->findByPk($id);
-        if ($model === null)
+        if ($model === null) {
             throw new CHttpException(404, 'The requested page does not exist.');
+        }
         return $model;
     }
 

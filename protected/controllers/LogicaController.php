@@ -35,22 +35,22 @@ class LogicaController extends Controller {
     }
 
     private function evaluar($formula) {
-        $expresion = new Expresion($formula);
+        $expresion = new Expresion;
         if ($expresion->validar($formula)) {
-            $expresion->ejecutar();
+            $expresion->ejecutar($formula);
             return (string) $expresion;
         } else {
-            Funcion::setFlash('danger', 'Error', LogicaException::$invalidForm);
+            Funcion::setFlash('danger', 'Error', LogicaException::invalidForm);
             return null;
         }
     }
 
     private function validar($formula) {
-        $expresion = new Expresion($formula);
+        $expresion = new Expresion;
         if ($expresion->validarConSimbolos($formula)) {
             return true;
         } else {
-            Funcion::setFlash('danger', 'Error', LogicaException::$invalidForm);
+            Funcion::setFlash('danger', 'Error', LogicaException::invalidForm);
             return false;
         }
     }

@@ -37,7 +37,7 @@
                         ),
                         array('label' => 'Acerca de', 'url' => array('/site/page', 'view' => 'about')),
 //                        array('label' => 'Contáctanos', 'url' => array('/site/contact')),
-                        array('label' => '', 'url' => array('/formula/index'), 'visible' => Yii::app()->user->isGuest),
+                        array('label' => '', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
                         array('label' => 'Fórmulas', 'url' => array('/formula/index'), 'visible' => !Yii::app()->user->isGuest),
                         array('label' => 'Cerrar sesión', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
                     ),

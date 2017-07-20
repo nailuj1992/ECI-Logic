@@ -33,6 +33,10 @@ Para poder satisfacer el objetivo general descrito antes, se ha procedido a segm
 
 Con base en los objetivos previos, se procedió a diseñar una propuesta que los satisfaga. Dicha propuesta se dividió en tres módulos, los cuales funcionan en forma independiente, pero juntos prometen brindar una experiencia enriquecedora al estudiante. Dichos módulos son los siguientes:
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/14367140/28439785-0c42538a-6d69-11e7-8f54-4907cf5b7bc6.png">
+</p>
+
 ### Módulo de conceptos
 
 Este módulo tiene como finalidad el introducir, de una forma amena, al usuario al pequeño gran mundo de la lógica proposicional. Contiene varios términos y definiciones clave e importantes, los cuales le harán aterrizar y entender, de una mejor manera, al usuario los principios más básicos y primordiales que gobiernan la lógica proposicional.
@@ -139,6 +143,8 @@ Aquí el usuario puede desplazar las diferentes fichas con el clic del ratón, e
 
 La versión de Escritorio es la más completa de las dos. La parte Web únicamente dispone lo que sería la **calculadora lógica** y el reto de **encontrar el conector**.
 
-Igual, si se quiere visualizar lo que sería el bosquejo de la aplicación Web, únicamente hay que seguir uno de los links (no se garantiza su disponibilidad permanente):
+Igual, si se quiere visualizar lo que sería el bosquejo de la aplicación Web, únicamente hay que seguir uno de los links (*no se garantiza su disponibilidad permanente*):
 * http://proweb.is.escuelaing.edu.co/
 * http://proweb.is.escuelaing.edu.co:8081/logica/
+
+Así mismo en este repositorio, también están disponibles para su consulta los códigos fuente tanto de la versión de Escritorio como de la versión Web.

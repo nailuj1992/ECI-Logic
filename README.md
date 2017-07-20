@@ -99,8 +99,6 @@ Le permite al usuario el poder experimentar visualmente con la estructura sintá
 
 Esta representación visual se potencia en gran medida a los retos que se planteen durante el aprendizaje, por medio de la creación de diversos escenarios o casos de estudio propuestos por el profesor o los mismos estudiantes. Un elemento importante a tener en cuenta durante estos escenarios propuestos es que el estudiante puede plantearse a sí mismo preguntas tipo “*¿Qué pasaría si…?*”.
 
-En este repositorio hay dos carpetas, las cuales corresponden a las dos versiones disponibles de la aplicación: una de escritorio, la cual se desarrolló en **PHP** bajo el Framework *Yii*; la otra se desarrolló en el lenguaje **Prolog**, por medio de la aplicación *Win-Prolog 6000*.
-
 ### Módulo de retos
 
 Como se mencionó antes, este módulo posee algunas actividades interesantes que permitirán que el usuario se entretenga, al mismo tiempo que afianza sus conocimientos en la lógica proposicional. Estas actividades pretenden ser recreativas y altamente interactivas, al igual que incentiven el raciocinio, razón por la cual no necesariamente se resuelven en forma intuitiva.
@@ -147,4 +145,4 @@ Igual, si se quiere visualizar lo que sería el bosquejo de la aplicación Web, 
 * http://proweb.is.escuelaing.edu.co/
 * http://proweb.is.escuelaing.edu.co:8081/logica/
 
-Así mismo en este repositorio, también están disponibles para su consulta los códigos fuente tanto de la versión de Escritorio como de la versión Web.
+Así mismo en este repositorio hay dos carpetas, las cuales corresponden a los códigos fuente de las dos versiones disponibles de la aplicación: una de escritorio, la cual se desarrolló en **PHP** bajo el Framework *Yii*; la otra se desarrolló en el lenguaje **Prolog**, por medio de la aplicación *Win-Prolog 6000*.

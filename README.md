@@ -139,10 +139,10 @@ Aquí el usuario puede desplazar las diferentes fichas con el clic del ratón, e
 
 ### Consideraciones
 
+En este repositorio hay dos carpetas, las cuales corresponden a los códigos fuente de las dos versiones disponibles de la aplicación: una versión es Web la cual se desarrolló en **PHP** bajo el Framework *Yii*, y la otra versión es de Escritorio y se desarrolló en el lenguaje **Prolog**, por medio de la aplicación *Win-Prolog 6000*.
+
 La versión de Escritorio es la más completa de las dos. La parte Web únicamente dispone lo que sería la **calculadora lógica** y el reto de **encontrar el conector**.
 
 Igual, si se quiere visualizar lo que sería el bosquejo de la aplicación Web, únicamente hay que seguir uno de los links (*no se garantiza su disponibilidad permanente*):
 * http://proweb.is.escuelaing.edu.co/
 * http://proweb.is.escuelaing.edu.co:8081/logica/
-
-Así mismo en este repositorio hay dos carpetas, las cuales corresponden a los códigos fuente de las dos versiones disponibles de la aplicación: una de escritorio, la cual se desarrolló en **PHP** bajo el Framework *Yii*; la otra se desarrolló en el lenguaje **Prolog**, por medio de la aplicación *Win-Prolog 6000*.
